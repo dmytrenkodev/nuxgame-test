@@ -5,13 +5,15 @@
 1. Clone repository
 
 ``` git clone https://github.com/dmytrenkodev/nuxgame-test.git ```
+
+2. Go to 
 ``` cd nuxgame-test ```
 
-2. From root directory
+3. From root directory
 ``` docker compose up -d --build ```
 
-3.Init DB skeleton
+4.Init DB skeleton
 ``` sh init_db.sh ```
 
-4. Go to
+5. Go to
 ``` http://localhost:8080 ```
