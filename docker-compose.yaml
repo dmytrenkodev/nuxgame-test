@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: nuxgame-app
+    volumes:
+      - ./public:/var/www/html/public
+      - ./src:/var/www/html/src
+    networks:
+      - nuxgame-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nuxgame-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html/public
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - nuxgame-network
+
+  db:
+    image: mysql:8
+    container_name: nuxgame-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nuxgame
+      MYSQL_USER: nuxgame
+      MYSQL_PASSWORD: nuxgame
+    networks:
+      - nuxgame-network
+
+networks:
+  nuxgame-network:
+    driver: bridge

@@ -1,0 +1,12 @@
+# Docker
+db_data/
+*.log
+
+# PHP
+/vendor/
+*.cache
+*.env
+
+# IDE
+.idea/
+*.iml
