@@ -108,7 +108,7 @@ class PageController extends Controller
      */
     private function imFeelingLucky(): void
     {
-        $num = random_int(1, 1000);
+        $num = random_int(1, self::MAX_RANDOM);
         $win = $num % 2 === 0;
         $amount = 0.0;
 
